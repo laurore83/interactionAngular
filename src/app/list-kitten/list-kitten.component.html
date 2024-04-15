@@ -1,14 +1,20 @@
 <p>list-kitten works!</p>
 <ul>
-  <li *ngFor="let kitten of newKittenList">
-    <!-- Affichage de l'image du chaton -->
-    <img src="{{ kitten.img }}" alt="{{ kitten.name }}" />
+  <ng-container *ngFor="let kitten of newKittenList">
+    <li *ngIf="!kitten.isAdopted">
+      <!-- Affichage de l'image du chaton -->
+      <img src="{{ kitten.img }}" alt="{{ kitten.name }}" />
 
-    <!-- Affichage du nom du chaton -->
-    <p>{{ kitten.name }}</p>
-    <button>Adoptez</button>
-  </li>
+      <!-- Affichage du nom du chaton -->
+      <p>{{ kitten.name }}</p>
+      <!-- *ngIf  isAdopted -->
+      <button (click)="adoptKitten(kitten)">Adoptez</button>
+    </li>
+  </ng-container>
 </ul>
 <app-create-kitten
   (sendKittenToParent)="onReceiveNewKitten($event)"
 ></app-create-kitten>
+<app-user-kitten
+  (sendAdoptedkitten)="onReceiveAdoptedKitten($event)"
+></app-user-kitten>

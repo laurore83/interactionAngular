@@ -3,4 +3,5 @@ export default interface kitten {
   race: string;
   birthday: number;
   img: string;
+  isAdopted: boolean;
 }

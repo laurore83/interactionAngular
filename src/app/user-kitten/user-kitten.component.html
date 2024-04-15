@@ -1,4 +1,10 @@
 <p>user-kitten works!</p>
 <ul>
-  <li><img src="" alt="" /></li>
+  <li *ngFor="let adoptedKitten of newAdoptedKittenList">
+    <!-- Affichage de l'image du chaton -->
+    <img src="{{ adoptedKitten.img }}" alt="{{ adoptedKitten.name }}" />
+
+    <!-- Affichage du nom du chaton -->
+    <p>{{ adoptedKitten.name }}</p>
+  </li>
 </ul>

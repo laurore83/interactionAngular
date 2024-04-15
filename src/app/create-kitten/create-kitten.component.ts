@@ -13,6 +13,7 @@ export class CreateKittenComponent {
     race: '',
     birthday: 0,
     img: '',
+    isAdopted: false,
   };
 
   @Output()
