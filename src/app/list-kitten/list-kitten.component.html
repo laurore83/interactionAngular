@@ -1,0 +1,14 @@
+<p>list-kitten works!</p>
+<ul>
+  <li *ngFor="let kitten of newKittenList">
+    <!-- Affichage de l'image du chaton -->
+    <img src="{{ kitten.img }}" alt="{{ kitten.name }}" />
+
+    <!-- Affichage du nom du chaton -->
+    <p>{{ kitten.name }}</p>
+    <button>Adoptez</button>
+  </li>
+</ul>
+<app-create-kitten
+  (sendKittenToParent)="onReceiveNewKitten($event)"
+></app-create-kitten>
