@@ -1,41 +1,49 @@
-<form (ngSubmit)="createKitten()">
-  <fieldset>
-    <label for="name">name</label>
-    <input
-      id="name"
-      name="name"
-      type="text"
-      required
-      [(ngModel)]="kitten.name"
-    />
-  </fieldset>
-  <fieldset>
-    <label for="race">race</label>
-    <input
-      id="race"
-      name="race"
-      type="text"
-      required
-      [(ngModel)]="kitten.race"
-    />
-  </fieldset>
+<div class="form-container">
+  <form class="form" (ngSubmit)="createKitten()">
+    <fieldset>
+      <label for="name">name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        [(ngModel)]="kitten.name"
+      />
+    </fieldset>
+    <fieldset>
+      <label for="race">race</label>
+      <input
+        id="race"
+        name="race"
+        type="text"
+        required
+        [(ngModel)]="kitten.race"
+      />
+    </fieldset>
 
-  <fieldset>
-    <label for="birthday">birthday</label>
-    <input
-      id="birthday"
-      name="birthday"
-      type="date"
-      required
-      [(ngModel)]="kitten.birthday"
-    />
-  </fieldset>
+    <fieldset>
+      <label for="birthday">birthday</label>
+      <input
+        id="birthday"
+        name="birthday"
+        type="date"
+        required
+        [(ngModel)]="kitten.birthday"
+      />
+    </fieldset>
 
-  <fieldset>
-    <label for="img">kittenImage URL</label>
-    <input id="img" name="img" type="text" required [(ngModel)]="kitten.img" />
-  </fieldset>
+    <fieldset>
+      <label for="img">kittenImage URL</label>
+      <input
+        id="img"
+        name="img"
+        type="text"
+        required
+        [(ngModel)]="kitten.img"
+      />
+    </fieldset>
 
-  <button type="reset">Restaurer</button>
-  <button type="submit">Create Kitten</button>
-</form>
+    <button type="reset">Restaurer</button>
+    <button type="submit">Create Kitten</button>
+  </form>
+</div>

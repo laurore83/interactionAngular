@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import kitten from '../models/kitten-models';
+import { Component, Input } from '@angular/core';
+import { kitten } from '../models/kitten-models';
 
 @Component({
   selector: 'app-user-kitten',
@@ -8,16 +8,5 @@ import kitten from '../models/kitten-models';
 })
 export class UserKittenComponent {
   @Input()
-  adoptedKitten: kitten[] = [];
-  @Output()
-  adoptKittenEvent: EventEmitter<kitten> = new EventEmitter<kitten>();
-
-  @Output()
-  sendAdoptedkitten: EventEmitter<kitten[]> = new EventEmitter<kitten[]>();
-
-  adoptKitten(selectedKitten: kitten): void {
-    // Marquer le chaton comme adopté
-    selectedKitten.isAdopted = true;
-    this.adoptKittenEvent.emit(selectedKitten);
-  }
+  adoptedKitten!: kitten[];
 }

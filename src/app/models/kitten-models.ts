@@ -1,7 +1,6 @@
-export default interface kitten {
+export interface kitten {
   name: string;
   race: string;
-  birthday: number;
+  birthday: Date;
   img: string;
-  isAdopted: boolean;
 }

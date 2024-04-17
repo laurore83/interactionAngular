@@ -1,10 +1,10 @@
-<p>user-kitten works!</p>
-<ul>
-  <li *ngFor="let adoptedKitten of newAdoptedKittenList">
-    <!-- Affichage de l'image du chaton -->
-    <img src="{{ adoptedKitten.img }}" alt="{{ adoptedKitten.name }}" />
-
-    <!-- Affichage du nom du chaton -->
-    <p>{{ adoptedKitten.name }}</p>
-  </li>
-</ul>
+<p>Mes Chatons</p>
+<div class="card" *ngFor="let kitten of adoptedKitten">
+  <p class="catName">
+    {{ kitten.name }}
+  </p>
+  <img class="catImg" src="{{ kitten.img }}" alt="  {{ kitten.name }}" />
+  <p>
+    {{ kitten.race }}
+  </p>
+</div>

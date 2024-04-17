@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import kitten from '../models/kitten-models';
+import { kitten } from '../models/kitten-models';
 
 @Component({
   selector: 'app-create-kitten',
@@ -7,21 +7,19 @@ import kitten from '../models/kitten-models';
   styleUrl: './create-kitten.component.css',
 })
 export class CreateKittenComponent {
-  @Input()
   kitten: kitten = {
     name: '',
     race: '',
-    birthday: 0,
+    birthday: new Date(),
     img: '',
-    isAdopted: false,
   };
 
   @Output()
   sendKittenToParent: EventEmitter<kitten[]> = new EventEmitter<kitten[]>();
 
   createKitten(): void {
-    const newKitten: kitten = { ...this.kitten };
+    const newKitten: kitten[] = [{ ...this.kitten }];
     // Emittez un tableau contenant le nouveau chaton
-    this.sendKittenToParent.emit([newKitten]);
+    this.sendKittenToParent.emit(newKitten);
   }
 }

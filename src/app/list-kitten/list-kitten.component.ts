@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import kitten from '../models/kitten-models';
+import { kitten } from '../models/kitten-models';
 
 @Component({
   selector: 'app-list-kitten',
@@ -7,30 +7,31 @@ import kitten from '../models/kitten-models';
   styleUrl: './list-kitten.component.css',
 })
 export class ListKittenComponent {
-  @Input() newKittenList: kitten[] = [];
+  newKittenList: kitten[] = [
+    {
+      name: 'minou',
+      race: 'mignon',
+      birthday: new Date(),
+      img: 'https://i.pinimg.com/564x/b8/a1/29/b8a12931251ca0df8da9d4d65dee8026.jpg',
+    },
+  ];
 
   onReceiveNewKitten(event: kitten[]): void {
     this.newKittenList.push(...event);
-    console.log(this.newKittenList);
+  }
+  showInfo: boolean = false;
+
+  showKittenInfo(kitten: any) {
+    this.showInfo = true;
   }
 
-  @Input() newAdoptedKittenList: kitten[] = [];
+  hideKittenInfo() {
+    this.showInfo = false;
+  }
+  adoptedKitten: kitten[] = [];
 
-  onReceiveAdoptedKitten(event: kitten[]): void {
-    this.newAdoptedKittenList.push(...event);
-    console.log(this.newAdoptedKittenList);
+  adoptKitten(kitten: kitten): void {
+    this.adoptedKitten.push(kitten);
+    this.newKittenList.pop();
   }
 }
-
-//   @Output()
-//   sendMyKitten: EventEmitter<kitten[]> = new EventEmitter<kitten[]>();
-//   adoptkitten(selectedKitten: kitten): void {
-//     // Vérifiez si un chat a été sélectionné
-//     if (selectedKitten) {
-//       // Émettez un événement pour envoyer le chat adopté vers le composant parent
-//       this.sendMyKitten.emit([selectedKitten]);
-//     } else {
-//       console.error('No kitten was selected for adoption.');
-//     }
-//   }
-// }

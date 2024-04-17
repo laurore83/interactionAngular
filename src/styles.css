@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+.card {
+  width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Définir la position relative pour que les éléments enfants positionnés absolument soient positionnés par rapport à ce conteneur */
+}
+.catImg {
+  width: 80%;
+  text-align: center;
+}
+.catName {
+  text-align: center;
+}
+ul {
+  text-decoration: none;
+}
+
+.infos-container {
+  position: absolute; /* Positionner les informations absolument par rapport au conteneur parent (.card) */
+  top: 0;
+  left: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Arrière-plan semi-transparent */
+
+  display: none; /* Par défaut, les informations sont cachées */
+}
+
+.card:hover .infos-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
